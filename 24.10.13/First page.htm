@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>What does the fox say ?</title>
+    <script language="javascript">
+        function GetName() 
+        {
+            var FirstName = document.form1.fname.value
+            var LastName = document.form1.lname.value
+
+            if (FirstName == "") 
+            {
+                if (LastName == "") 
+                {
+                    alert("Oh hell no ! You haven't entered anything")
+                }
+                
+                if (LastName != "")
+                {
+                    alert("You haven't entered your first name")
+                }
+            }
+            else
+                {
+                if (LastName == "")
+                     alert("You haven't entered your last name")
+                else
+                alert(FirstName + " " + LastName);
+                }  
+    </script>
+</head>
+
+<body>
+<form name = "form1" >
+    First name: <input type="text" name="fname" /><br />
+    Last name: <input type="text" name="lname" /><br />
+    <input type="button" onclick="GetName()" value = "Alert !" />
+    <input type="reset" value="Reset !" />
+</form>
+</body>
+</html>
