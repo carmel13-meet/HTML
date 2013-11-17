@@ -11,19 +11,36 @@
         name = window.prompt("Enter your name");
         window.alert("Hello " + name);
         window.document.write("Hello " + name);
-        window.document.write("bgcolor = " + document.bgColor + "<br/>");
+        if (name == "yoav" || name == "Yoav")
+            window.alert("Russia is waiting for you")     
         window.document.bgColor = "gray";
-        window.document.write("bgcolor = " + document.bgColor + "<br/>");
+    
         var ok = window.confirm("add picture?");
         if (ok) 
         {
             document.write("<img src = 'http://images.wikia.com/ransomofredchief/images/b/b8/2204355_by_2204355plz.gif' />");
-            document.write("^this is you in 5 years");
-        }
-        </script>
-   
-</head>
-<body>
+            document.write("<-- this is you in 5 years");
+                }
+            
 
+
+        </script>
+</head>
+<body  id = "doc">
+    <span onclick="document.bgColor='purple'">
+        Click here to change bgColor to dark blue
+     </span>
+     <span onmousemove="document.bgColor='pink'"
+            onmouseout = "document.bgColor='white'">
+            on mouse move change bgColor to yellow,
+            on mouse out change bgColor to green
+     </span> 
+           
+    <img name = "pic" src = "http://aboutcolonblank.com/wp-content/uploads/2012/07/nyan-cat.png" alt="3" height="100" border="1" />
+    <span ondblclick = "document.pic.src='http://www.rawfoodscotland.co.uk/wp-content/uploads/2011/08/chips.jpg';
+            document.pic.alt='4'">
+          to change picture --> double click
+    </span>
 </body>
+    
 </html>
