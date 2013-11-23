@@ -6,30 +6,63 @@
 <head>
     <title></title>
     <script language = "javascript">
-        function Spy() {
-            var address = document.form1.email.value
-            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            if (!filter.test(address)) {
+        function MyFunction() {
+            var address = document.form1.email.value;
+            var strudel = address.indexOf("@");
+            if (strudel == -1) {
                 alert("You are missing a '@'");
             }
-            else
-                alert("Cool e-mail")
-        }
+            var FirstName = document.form1.fname.value;
+            var LastName = document.form1.lname.value;
+
+            if (FirstName == "") {
+                if (LastName == "") {
+                    alert("Oh hell no ! You haven't entered anything");
+                }
+
+                if (LastName != "") {
+                    alert("You haven't entered your first name");
+                }
+            }
+            else {
+                if (LastName == "")
+                    alert("You haven't entered your last name");
+                else
+                    alert(FirstName + " " + LastName);
+            }
+
+            if (document.getElementById("female").checked == true) {
+                alert("Nice hat")
+            }
+
+            if (document.getElementById("Israel").checked == true)
+            {
+                alert("You must be kidding");
+                }
+
+
+
+
+         
+        }  
             
     </script>
 </head>
-<body>
-    <form id="form1" name = "form1">
-    <div>
-    What's your name ? <input type="text" name="name" />
-
-    <br />
-
-    Enter your email address: <input type = "text" name = "email" />
-
-    <br />
-
-    <h3>Choose your class:
+<body bgcolor="aqua">
+    <form id="form1" name = "form1" method = "post">
+    <table border = "2" align = "center">
+    <tr>
+    <td>First name: </td><td><input type="text" name="fname" /></td>
+    </tr>
+    <tr>
+    <td>Last name: </td><td><input type="text" name="lname" /></td>
+    </tr>
+    <tr>
+    <td>Enter your email address: </td><td><input type = "text" name = "email" /></td>
+    </tr>
+    <tr>
+    <td>Choose your class: </td>
+    <td>
     <select name = "select">
     <option value="1">1</option>
     <option value="2">2</option>
@@ -40,38 +73,20 @@
     <option value="7">7</option>
     <option value="8">8</option>
     </select>
-    </h3>
-    
+    </td>
+    </tr>
+    <tr>
+    <td>What's your gender ? </td><td>Male <input type="radio" name="gender" value = "male" id = "male" /></td><td>Female <input type="radio" name="gender" value = "female" id = "female" /></td>
+    </tr>
+    <tr>
+    <td>Enter password: <input type="password" name="password" /></td>
+    </tr>
+    </table>
     <br />
+    <center><input type="submit" name="submit" value="Submit" onclick = "MyFunction()" /></center>
+    <center><input type="reset" name="reset" value="Reset" /></center>
+    
 
-    <h4>Where would you like to commit a suicide?</h4>
-    Israel<input type="checkbox" name="v_place1" value="Israel" onclick = "Israel()" />
-    U.K.<input type="checkbox" name="v_place2" value="U.K." />
-    U.S.A<input type="checkbox" name="v_place3" value="U.S.A" />
-    Madagascar<input type="checkbox" name="v_place4" value="Madagascar" />
-    
-    <br />
-
-    <h5>Have you ever seen slenderman ?</h5>
-    YES ! he's a handsome man<input type ="radio" name = "v_answer" value="YES!! he's a handsome man" />
-    of course not ! i'm not stupid...<input type ="radio" name = "v_answer" value="of course not ! i'm not stupid..." />
-    no<input type ="radio" name = "v_answer" value="no" />
-    whar's a slenderman ?<input type ="radio" name = "v_answer" value="what's a slenderman ?" />
-
-    <br />
-
-    <textarea name = "textarea" cols = "30" rows = "10">Are you tired from being chased by onions?</textarea>
-    
-    <br />
-    
-    <h6>Don't enter password</h6><input type="password" name="password" />
-    
-    <br />
-    
-    <input type="submit" name="submit" value="submit" onclick="Spy()"/>
-    <input type="reset" name="reset" value="reset" />
-    
-    </div>
     
     </form>
 </body>
