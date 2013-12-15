@@ -1,0 +1,21 @@
+﻿body 
+{
+    direction: rtl;
+    background-color: Aqua;
+}
+
+table 
+{
+    border: "2";
+    background-color: White;
+    border-style: solid;
+}
+
+.navbar
+{
+    border: "2";
+    background-color: Silver;
+    width: 100%;
+    border-color: Blue;
+    color: Aqua
+}
