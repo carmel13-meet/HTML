@@ -6,7 +6,7 @@
 <head dir = "rtl">
     <title>טופס הרשמה</title>
     <link rel="stylesheet" type="text/css" href="StyleSheet.css" />
-    <script language = "javascript">
+    <script language = "javascript" type = "text/javascript" >
         function MyFunction() {
             var firstName = document.form1.fname.value;
             var lastName = document.form1.lname.value;
@@ -24,6 +24,18 @@
             else {
                 if (lastName == "") {
                     alert("לא רשמת את שם משפחתך");
+                    return false;
+                }
+            }
+            for (var i = 0; i < (firstName.length) - 1; i++) {
+                if (isNaN(firstName[i]) == false) {
+                    alert("בבקשה הכנס שם פרטי המכיל רק אותיות");
+                    return false;
+                }
+            }
+            for (var i = 0; i < (lastName.length) - 1; i++) {
+                if (isNaN(lastName[i]) == false) {
+                    alert("בבקשה הכנס שם משפחה המכיל רק אותיות");
                     return false;
                 }
             }
@@ -48,9 +60,11 @@
                 return false;
             }
             var id = document.form1.value;
-            if (isNaN(id) == true) {
-                alert("בבקשה הכנס תעודת זהות המכילה רק מספרים");
-                return false;
+            for (var i = 0; i < (id.length) - 1; i++) {
+                if (isNaN(id) == true) {
+                    alert("בבקשה הכנס תעודת זהות המכילה רק מספרים");
+                    return false;
+                }
             }
             if (id == "")
                 alert("בבקשה הכנס תעודת זהות");
