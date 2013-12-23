@@ -25,8 +25,8 @@
                 if (lastName == "") {
                     alert("לא רשמת את שם משפחתך");
                     return false;
+                     }
                 }
-            }
             for (var i = 0; i < (firstName.length) - 1; i++) {
                 if (isNaN(firstName[i]) == false) {
                     alert("בבקשה הכנס שם פרטי המכיל רק אותיות");
@@ -50,16 +50,16 @@
                 alert("לא רשמת את גילך");
                 return false;
             }
-            if (age > 100 || age < 1) {
+            if (age > 100 || age < 10) {
                 alert("בבקשה הכנס גיל הגיוני");
                 return false;
-
             }
+
             if (isNaN(age) == true) {
                 alert("בבקשה הכנס גיל המכיל מספרים בלבד");
                 return false;
             }
-            var id = document.form1.value;
+            var id = document.form1.id.value;
             for (var i = 0; i < (id.length) - 1; i++) {
                 if (isNaN(id) == true) {
                     alert("בבקשה הכנס תעודת זהות המכילה רק מספרים");
@@ -71,13 +71,23 @@
             if ((document.getElementById("female").checked == false) && (document.getElementById("male").checked == false)) {
                 alert("לא רשמת את מינך");
                 return false;
-            }
 
-            var password = document.form1.password.value;
+            }
+            var password = document.getElementById("password");
+            var password2 = document.getElementById("password2");
+            if (password != password2) {
+                alert("אנא אמת את סיסמתך שוב");
+                return false;
+            }
             if (password == "") {
                 alert("לא רשמת את סיסמתך");
                 return false;
             }
+            if (password2 == "") {
+                alert("שכחת לאמת את סיסמתך");
+                return false;
+            }
+
             
             
         }
@@ -102,10 +112,10 @@
     <form id="form1" name = "form1" method = "get" action = "HomePage.htm" onsubmit = "return MyFunction()">
     <table border = "2" align = "center" dir = "rtl">
     <tr>
-    <td>שם פרטי: </td><td><input type="text" name="fname" /></td>
+    <td>שם פרטי: </td><td><input type="text" name="fname" value = "x"/></td>
     </tr>
     <tr>
-    <td>שם משפחה: </td><td><input type="text" name="lname" /></td>
+    <td>שם משפחה: </td><td><input type="text" name="lname" value = "x"/></td>
     </tr>
     <tr>
     <td>כתובת הדוא"ל שלך: </td><td><input type = "text" name = "email" /></td>
@@ -120,7 +130,10 @@
     <td>מין: </td><td>זכר <input type="radio" name="gender" value = "male" id = "male" /></td><td>נקבה <input type="radio" name="gender" value = "female" id = "female" /></td>
     </tr>
     <tr>
-    <td>סיסמה: </td><td><input type="password" name="password" /></td>
+    <td>סיסמה: </td><td><input type="password" name="password" id = "password"/></td>
+    <tr></tr>
+    <tr>
+    <td>אימות סיסמה: </td><td><input type = "password" name = "password2" id = "password2"/></td>
     </tr>
     </table>
     <br />
