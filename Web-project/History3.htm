@@ -4,7 +4,48 @@
 <head>
     <title>אישים</title>
     <link rel="Stylesheet" type="text/css" href="StyleSheet.css" />
-</head>
+    <script type="text/javascript" language = "javascript">
+    var dimages = new Array();
+            var numImages = 8;
+
+            //הגדרת מערך תמונות בגודל 5 תאים
+            for (i = 0; i < numImages; i++) {
+                dimages[i] = new Image();
+                dimages[i].src = "Images/Slide/Img" + (i + 1) + ".jpg";
+            }
+            var curImage = -1;
+
+            function swapPicture() {
+                if (document.images) {
+                    var nextImage = curImage + 1;
+                    if (nextImage >= numImages)
+                        nextImage = 0;
+                    if (dimages[nextImage] && dimages[nextImage].complete) {
+                        var target = 0;
+                        if (document.images.myImage)
+                            target = document.images.myImage;
+                        if (document.all && document.getElementById("myImage"))
+                            target = document.getElementById("myImage");
+
+                        // make sure target is valid.  It might not be valid
+                        //   if the page has not finished loading
+                        if (target) {
+                            target.src = dimages[nextImage].src;
+                            curImage = nextImage;
+                        }
+
+                        //הפעלת פונקציית החלפת התמונות וזמן השהייה
+                        setTimeout("swapPicture()", 500);
+                    }
+                    else {
+                        setTimeout("swapPicture()", 50);
+                    }
+                } // close if doc.images
+
+            } // close the function 
+            setTimeout("swapPicture()", 500);
+    </script>
+</head>  
 <body>
 <table class = "navbar">
 <tr>
@@ -22,12 +63,12 @@
 <td colspan="6">
 <b>מרטין לותר קינג-</b> משנת 1955 ועד להירצחו בשנת 1968 בלט מרטין לותר קינג, כומר אפרו-אמריקאי, בהובלת המאבק של האפרו-אמריקאים לשוויון זכויות וביטול ההפרדה הגזעית.
 
-ב-28 באוגוסט 1963, נערכה הפגנת ענק בוושינגטון בכותרת: "המצעד לוושינגטון למען תעסוקה וחירות", בה השתתפו כ-250,000 איש. מרטין לותר קינג נשא בהפגנה את נאומו הידוע ביותר: "יש לי חלום" - (I have a dream), שעסק בשוויון זכויות לכל האזרחים.
+ב-28 באוגוסט 1963, נערכה הפגנת ענק בוושינגטון בכותרת: "המצעד לוושינגטון למען תעסוקה וחירות", בה השתתפו כ-250,000 איש. מרטין לותר קינג נשא בהפגנה את נאומו הידוע ביותר: "יש לי חלום" - (<a href = "http://www.youtube.com/watch?v=HRIF4_WzU1w">I have a dream</a>), שעסק בשוויון זכויות לכל האזרחים.
 <br />
 <b>מלקולם אקס- </b>
 אל מול גישת המאבק השקט בהפרדה הגזעית, שאותה ייצג מרטין לותר קינג, היו תנועות שדגלו בהפרדה גזעית ומאבק אלים בגזענות והאפליה שבחברה הלבנה. נציגים מובהקים של גישה זו היו מלקולם אקס ואומת האסלאם. לימים למד מלקולם כי ארגון זה הינו פלילי והקים ארגון אחר עם גישה מתונה יותר וזכה להכרה והערכה גדולה בקרב החברה הלבנה. זכור במיוחד נאומו בדיון אוקספורד.
 <br />
-<img src="Images/Martin%20Luther%20King.jpg" />
+<img name="myImage" id="myImage" height="400" width="400" alt="Images/Slide/Img8.jpg" src="Images/Slide/Img8.jpg" />
 </td>
 </tr>
 </table>
