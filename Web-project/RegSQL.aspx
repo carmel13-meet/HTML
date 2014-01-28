@@ -30,5 +30,6 @@
 
     </div>
     <a href="HomePage.htm">HomePage.htm</a>
+    <a href="ShowTable.aspx">Do you want to see if it worked ?</a>
 </body>
 </html>
